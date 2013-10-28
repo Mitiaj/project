@@ -57,13 +57,12 @@ class UserController extends Controller
         $this->layout = "none";
         if(!Yii::app()->user->isGuest)
         {
-            throw new CException('Вы уже зарегистрированны!');
+            throw new CException('already registered!');
         }
         else
         {
             if (!empty($_POST['User'])) {
-                print 'hahaha';
-                print_r($_POST['User']);
+                //print_r($_POST['User']);
                 $form->attributes = $_POST['User'];
                 $form->verifyCode = $_POST['User']['verifyCode'];
                 $form->scenario = 'registration';
@@ -71,24 +70,24 @@ class UserController extends Controller
 
                     if ($form->model()->count("login = :login", array(':login' => $form->login)))
                     {
-                        print "haha";
-                        $form->addError('email', 'Логин уже занят');
+                        $form->addError('login', 'Login already in use');
                         $this->render("registration", array('form' => $form));
                     }
                     else
                     {
                         $passwordHash = crypt($form->password, $this->blowfishSalt());
                         $form->password = $passwordHash;
-                        print_r($passwordHash);
                         $form->save();
-                        $this->render("registration_ok");
+                        Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/bootstrap/css/bootstrap.min.css?001");
+                        $this->render("registrationOk");
                     }
 
                 } else {
-
+                    Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/bootstrap/css/bootstrap.min.css?001");
                     $this->render("registration", array('form' => $form));
                 }
             } else {
+                Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . "/css/bootstrap/css/bootstrap.min.css?001");
                 $this->render("registration", array('form' => $form));
             }
         }
