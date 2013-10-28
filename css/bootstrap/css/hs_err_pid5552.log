@@ -1,0 +1,194 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32756 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:222), pid=5552, tid=7144
+#
+# JRE version: 7.0_10-b18
+# Java VM: Java HotSpot(TM) Client VM (23.6-b04 mixed mode, sharing windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0189f800):  JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=7144, stack(0x03e50000,0x03ea0000)]
+
+Stack: [0x03e50000,0x03ea0000],  sp=0x03e9efcc,  free space=315k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x16f311]
+V  [jvm.dll+0x169625]
+V  [jvm.dll+0x5e8c5]
+V  [jvm.dll+0x5ea82]
+V  [jvm.dll+0x5ec33]
+V  [jvm.dll+0x1957df]
+V  [jvm.dll+0x25498a]
+V  [jvm.dll+0x257be9]
+V  [jvm.dll+0x259070]
+V  [jvm.dll+0x259459]
+V  [jvm.dll+0x2406e7]
+V  [jvm.dll+0x24079a]
+V  [jvm.dll+0x2408f7]
+V  [jvm.dll+0x240b7d]
+V  [jvm.dll+0x4663e]
+V  [jvm.dll+0x46bb4]
+V  [jvm.dll+0x14a6b7]
+V  [jvm.dll+0x14a820]
+V  [jvm.dll+0x17f009]
+C  [msvcr100.dll+0x10fac]
+C  [msvcr100.dll+0x110b1]
+C  [kernel32.dll+0x4ed6c]
+C  [ntdll.dll+0x6377b]
+C  [ntdll.dll+0x6374e]
+
+
+Current CompileTask:
+C1:   7124   59             sun.nio.cs.UTF_8$Encoder::encode (361 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x018ad400 JavaThread "Service Thread" daemon [_thread_blocked, id=7944, stack(0x03ee0000,0x03f30000)]
+=>0x0189f800 JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=7144, stack(0x03e50000,0x03ea0000)]
+  0x0189e800 JavaThread "Attach Listener" daemon [_thread_blocked, id=5232, stack(0x019c0000,0x01a10000)]
+  0x0189b400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=9604, stack(0x03dc0000,0x03e10000)]
+  0x01887c00 JavaThread "Finalizer" daemon [_thread_blocked, id=4100, stack(0x03c80000,0x03cd0000)]
+  0x01886400 JavaThread "Reference Handler" daemon [_thread_blocked, id=3304, stack(0x03ba0000,0x03bf0000)]
+  0x0190b000 JavaThread "main" [_thread_in_native, id=6784, stack(0x01300000,0x01350000)]
+
+Other Threads:
+  0x01884400 VMThread [stack: 0x03a80000,0x03ad0000] [id=8064]
+  0x018af000 WatcherThread [stack: 0x03f50000,0x03fa0000] [id=1920]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 4928K, used 4416K [0x23860000, 0x23db0000, 0x28db0000)
+  eden space 4416K, 100% used [0x23860000, 0x23cb0000, 0x23cb0000)
+  from space 512K,   0% used [0x23cb0000, 0x23cb0000, 0x23d30000)
+  to   space 512K,   0% used [0x23d30000, 0x23d30000, 0x23db0000)
+ tenured generation   total 10944K, used 0K [0x28db0000, 0x29860000, 0x33860000)
+   the space 10944K,   0% used [0x28db0000, 0x28db0000, 0x28db0200, 0x29860000)
+ compacting perm gen  total 12288K, used 247K [0x33860000, 0x34460000, 0x37860000)
+   the space 12288K,   2% used [0x33860000, 0x3389dd80, 0x3389de00, 0x34460000)
+    ro space 10240K,  45% used [0x37860000, 0x37ce5e50, 0x37ce6000, 0x38260000)
+    rw space 12288K,  54% used [0x38260000, 0x388e8f78, 0x388e9000, 0x38e60000)
+
+Card table byte_map: [0x01910000,0x019c0000] byte_map_base: 0x017f3d00
+
+Polling page: 0x00270000
+
+Code Cache  [0x01a50000, 0x01af8000, 0x03a50000)
+ total_blobs=189 nmethods=58 adapters=67 free_code_cache=32115Kb largest_free_block=32886080
+
+Compilation events (10 events):
+Event: 2.798 Thread 0x0189f800 nmethod 54 0x01af0a08 code [0x01af0c30, 0x01af15d0]
+Event: 2.798 Thread 0x0189f800   55             java.util.zip.ZipCoder::decoder (35 bytes)
+Event: 2.798 Thread 0x0189f800 nmethod 55 0x01af1f08 code [0x01af2010, 0x01af20fc]
+Event: 3.075 Thread 0x0189f800   56             com.yahoo.platform.yui.compressor.JarClassLoader::findJarEntry (42 bytes)
+Event: 3.076 Thread 0x0189f800 nmethod 56 0x01af2188 code [0x01af22e0, 0x01af256c]
+Event: 4.383 Thread 0x0189f800   57             sun.nio.cs.SingleByte$Encoder::encode (114 bytes)
+Event: 4.383 Thread 0x0189f800 nmethod 57 0x01af2848 code [0x01af2960, 0x01af2c30]
+Event: 4.383 Thread 0x0189f800   58             sun.nio.cs.SingleByte$Encoder::encode (32 bytes)
+Event: 4.384 Thread 0x0189f800 nmethod 58 0x01af2fc8 code [0x01af30d0, 0x01af31c0]
+Event: 6.849 Thread 0x0189f800   59             sun.nio.cs.UTF_8$Encoder::encode (361 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (9 events):
+Event: 0.028 Thread 0x0190b000 Threw 0x238611d8 at C:\jdk7u2_32P\jdk7u10\hotspot\src\share\vm\prims\jni.cpp:3994
+Event: 1.107 Thread 0x0190b000 Threw 0x238a4d58 at C:\jdk7u2_32P\jdk7u10\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 1.441 Thread 0x0190b000 Threw 0x238afda0 at C:\jdk7u2_32P\jdk7u10\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 1.463 Thread 0x0190b000 Threw 0x238b7010 at C:\jdk7u2_32P\jdk7u10\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 1.481 Thread 0x0190b000 Threw 0x238bd598 at C:\jdk7u2_32P\jdk7u10\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 1.511 Thread 0x0190b000 Threw 0x238bf6e8 at C:\jdk7u2_32P\jdk7u10\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 1.521 Thread 0x0190b000 Threw 0x238c23f8 at C:\jdk7u2_32P\jdk7u10\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 1.532 Thread 0x0190b000 Threw 0x238c8250 at C:\jdk7u2_32P\jdk7u10\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 1.537 Thread 0x0190b000 Threw 0x238ca950 at C:\jdk7u2_32P\jdk7u10\hotspot\src\share\vm\prims\jvm.cpp:1166
+
+Events (10 events):
+Event: 1.537 loading class 0x018ccaa8
+Event: 1.537 loading class 0x018ccaa8 done
+Event: 2.100 loading class 0x38ed2740
+Event: 2.100 loading class 0x38ed2740 done
+Event: 2.101 loading class 0x38ed2710
+Event: 2.101 loading class 0x38ed2770
+Event: 2.101 loading class 0x38ed2770 done
+Event: 2.101 loading class 0x38ed2710 done
+Event: 4.920 Executing VM operation: EnableBiasedLocking
+Event: 4.920 Executing VM operation: EnableBiasedLocking done
+
+
+Dynamic libraries:
+0x013d0000 - 0x013ff000 	c:\program files\jetbrains\phpstorm 6.0\jre\jre\bin\java.exe
+0x770f0000 - 0x7722c000 	C:\Windows\SYSTEM32\ntdll.dll
+0x77010000 - 0x770e4000 	C:\Windows\system32\kernel32.dll
+0x753c0000 - 0x7540b000 	C:\Windows\system32\KERNELBASE.dll
+0x76b40000 - 0x76be0000 	C:\Windows\system32\ADVAPI32.dll
+0x76970000 - 0x76a1c000 	C:\Windows\system32\msvcrt.dll
+0x77270000 - 0x77289000 	C:\Windows\SYSTEM32\sechost.dll
+0x76f00000 - 0x76fa1000 	C:\Windows\system32\RPCRT4.dll
+0x75810000 - 0x758d9000 	C:\Windows\system32\USER32.dll
+0x75ad0000 - 0x75b1e000 	C:\Windows\system32\GDI32.dll
+0x75800000 - 0x7580a000 	C:\Windows\system32\LPK.dll
+0x768d0000 - 0x7696d000 	C:\Windows\system32\USP10.dll
+0x740c0000 - 0x7425e000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+0x76e50000 - 0x76ea7000 	C:\Windows\system32\SHLWAPI.dll
+0x76be0000 - 0x76bff000 	C:\Windows\system32\IMM32.DLL
+0x75580000 - 0x7564c000 	C:\Windows\system32\MSCTF.dll
+0x52a20000 - 0x52add000 	c:\program files\jetbrains\phpstorm 6.0\jre\jre\bin\msvcr100.dll
+0x55af0000 - 0x55e3c000 	c:\program files\jetbrains\phpstorm 6.0\jre\jre\bin\client\jvm.dll
+0x6e440000 - 0x6e447000 	C:\Windows\system32\WSOCK32.dll
+0x75a90000 - 0x75ac5000 	C:\Windows\system32\WS2_32.dll
+0x758e0000 - 0x758e6000 	C:\Windows\system32\NSI.dll
+0x73520000 - 0x73552000 	C:\Windows\system32\WINMM.dll
+0x75650000 - 0x75655000 	C:\Windows\system32\PSAPI.DLL
+0x740b0000 - 0x740bc000 	c:\program files\jetbrains\phpstorm 6.0\jre\jre\bin\verify.dll
+0x73040000 - 0x73060000 	c:\program files\jetbrains\phpstorm 6.0\jre\jre\bin\java.dll
+0x6f930000 - 0x6f943000 	c:\program files\jetbrains\phpstorm 6.0\jre\jre\bin\zip.dll
+0x6d820000 - 0x6d90b000 	C:\Windows\system32\dbghelp.dll
+
+VM Arguments:
+java_command: C:\Users\Michal\Downloads\yuicompressor-2.4.7\yuicompressor-2.4.7\build\yuicompressor-2.4.7.jar bootstrap.min.css -o bootstrap.min.min.css
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Program Files\JetBrains\PhpStorm 6.0\bin\..\.\bin;C:\Program Files\PC Connectivity Solution\;C:\Ruby200\bin;C:\app\Michal\product\11.2.0\client_1;C:\app\Michal\product\11.2.0\client_1\bin;C:\app\Michal\product\11.2.0\dbhome_1\bin;C:\DevSuiteHome_2\bin;C:\DevSuiteHome_1\jdk\jre\bin\classic;C:\DevSuiteHome_1\jdk\jre\bin;C:\DevSuiteHome_1\jdk\jre\bin\client;C:\DevSuiteHome_1\jlib;C:\DevSuiteHome_1\bin;C:\DevSuiteHome_1\jre\1.4.2\bin\client;C:\DevSuiteHome_1\jre\1.4.2\bin;C:\Program Files\PHP\;C:\Program Files\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Autodesk\Backburner\;C:\ProgramData\Composer\bin;C:\Program Files\TortoiseGit\bin;C:\HashiCorp\Vagrant\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Michal\AppData\Roaming\npm;c:\program files\jetbrains\phpstorm 6.0\jre\jre\bin
+USERNAME=Michal
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 13, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 Build 7601 Service Pack 1
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 13, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, tsc
+
+Memory: 4k page, physical 3144984k(442260k free), swap 4715068k(4880k free)
+
+vm_info: Java HotSpot(TM) Client VM (23.6-b04) for windows-x86 JRE (1.7.0_10-b18), built on Nov 28 2012 08:34:29 by "java_re" with unknown MS VC++:1600
+
+time: Mon Oct 28 11:19:08 2013
+elapsed time: 7 seconds
+

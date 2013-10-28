@@ -15,7 +15,19 @@ return array(
 	'defaultController'=>'site',
 
 	// application components
+    'modules'=>array(
+        // uncomment the following to enable the Gii tool
+        'login',
+        'gii'=>array(
+            'class'=>'system.gii.GiiModule',
+            'password'=>'asd',
+            // If removed, Gii defaults to localhost only. Edit carefully to taste.
+            'ipFilters'=>array('127.0.0.1','::1'),
+        ),
+
+    ),
 	'components'=>array(
+
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -25,26 +37,25 @@ return array(
 			'tablePrefix' => 'tbl_',
 		),*/
 		// uncomment the following to use a MySQL database
-		/*
+
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=blog',
+			'connectionString' => 'mysql:host=localhost;dbname=project',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => 'usbw',
 			'charset' => 'utf8',
-			'tablePrefix' => 'tbl_',
 		),
-		*/
+
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+            'showScriptName'=>false,
 			'rules'=>array(
-				'post/<id:\d+>/<title:.*?>'=>'post/view',
-				'posts/<tag:.*?>'=>'post/index',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
 		'log'=>array(
